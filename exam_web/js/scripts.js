@@ -163,3 +163,51 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Проверка, есть ли зарегистрированные пользователи
+const users = JSON.parse(localStorage.getItem("users")) || [];
+
+// Форма регистрации
+const registrationForm = document.getElementById("registrationForm");
+registrationForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const username = document.getElementById("reg-username").value;
+    const email = document.getElementById("reg-email").value;
+    const password = document.getElementById("reg-password").value;
+
+    // Проверка, существует ли пользователь
+    const userExists = users.some(user => user.username === username || user.email === email);
+    if (userExists) {
+        alert("Пользователь с таким именем или email уже существует.");
+        return;
+    }
+
+    // Добавление пользователя в массив и сохранение в LocalStorage
+    users.push({ username, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Регистрация успешна!");
+    registrationForm.reset();
+});
+
+// Форма входа
+const loginForm = document.getElementById("loginForm");
+loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const usernameOrEmail = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
+
+    // Проверка пользователя
+    const user = users.find(user =>
+        (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password
+    );
+
+    if (user) {
+        alert(`Добро пожаловать, ${user.username}!`);
+        loginForm.reset();
+    } else {
+        alert("Неверное имя пользователя/email или пароль.");
+    }
+});
