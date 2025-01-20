@@ -1,0 +1,195 @@
+/* Основные стили */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Светло-серый фон */
+    margin: 0;
+    padding: 0;
+}
+
+/* Навигационная панель */
+header {
+    background-color: #000000; /* Черный фон */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+}
+
+.nav .nav-link {
+    color: #ffffff;
+    position: relative;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav .nav-link:hover {
+    color: #ffc107; /* Золотистый цвет при наведении */
+}
+
+.nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Расстояние до текста */
+    width: 0;
+    height: 2px;
+    background-color: #ffc107; /* Цвет подчеркивания */
+    transition: width 0.3s ease;
+}
+
+.nav .nav-link:hover::after {
+    width: 100%; /* Подчеркивание растягивается */
+}
+
+.nav .active {
+    color: #ffc107; /* Цвет активной ссылки */
+}
+
+.nav .active::after {
+    width: 100%; /* Подчеркивание активной ссылки */
+}
+
+/* Кнопка викторины */
+#quiz button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#quiz button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Легкое увеличение */
+}
+
+/* Нижний колонтитул */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #ffc107; /* Золотистый при наведении */
+}
+
+/* Модальное окно */
+.modal.show {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Вкладки в модальном окне */
+.nav-tabs .nav-link.active {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 0.5rem;
+}
+
+.nav-tabs .nav-link {
+    color: #007bff;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    padding: 10px 15px;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+}
+
+/* Вкладки "Авторизация / Регистрация" */
+.custom-tabs .nav-link {
+    color: #6c757d;
+    border: 1px solid transparent;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    padding: 10px 15px;
+}
+
+.custom-tabs .nav-link.active {
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.custom-tabs .nav-link:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+
+/* Кнопки в модальном окне */
+.custom-button {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-button:hover {
+    background-color: #00ffe1;
+    transform: scale(1.05); /* Легкое увеличение */
+}
+
+/* Стили формы в модальном окне */
+.modal-body form .form-control {
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-body form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.modal-body label {
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-body .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.modal-body .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Общие анимации */
+button:hover, a:hover {
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
